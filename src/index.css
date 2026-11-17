@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Quicksand', sans-serif;
+    --font-sans: 'Nunito', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --plantea-bg: #FFF4F8;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--plantea-bg, #FFF4F8);
+    color: #3D1A2B;
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Chế độ tối (Dark Mode) cho toàn bộ giao diện Plantea */
+.plantea-dark {
+  color-scheme: dark;
+  background-color: color-mix(in srgb, var(--plantea-bg, #FFF4F8) 12%, #140D11) !important;
+  color: #FCEBF2 !important;
+}
+
+.plantea-dark header {
+  background-color: rgba(29, 17, 23, 0.94) !important;
+  border-color: #4B2C3B !important;
+}
+
+.plantea-dark section[aria-label="Thanh điều khiển lịch"] {
+  background-color: #24141C !important;
+  border-color: #4B2C3B !important;
+}
+
+.plantea-dark .bg-white,
+.plantea-dark .bg-white\/95,
+.plantea-dark .bg-white\/90,
+.plantea-dark .bg-\[\#FFF8FB\],
+.plantea-dark .bg-\[\#FFFDFD\],
+.plantea-dark .bg-\[\#FAFDFB\],
+.plantea-dark .bg-\[\#FFF4F8\] {
+  background-color: #25161D !important;
+}
+
+.plantea-dark .bg-\[\#FFF0F6\],
+.plantea-dark .bg-\[\#FFE3EE\],
+.plantea-dark .bg-\[\#FFE8F1\],
+.plantea-dark .bg-\[\#FFF3F8\],
+.plantea-dark .bg-\[\#FFF7FA\],
+.plantea-dark .bg-\[\#F7FDF9\] {
+  background-color: #321E28 !important;
+}
+
+.plantea-dark .bg-\[\#F0F7FF\],
+.plantea-dark .bg-\[\#DBEAFE\] {
+  background-color: #1D293B !important;
+}
+
+.plantea-dark .bg-\[\#FFFAF5\],
+.plantea-dark .bg-\[\#FFF7F9\] {
+  background-color: #36222B !important;
+}
+
+.plantea-dark .bg-\[\#FFDCEB\],
+.plantea-dark .bg-\[\#FFD6E7\] {
+  background-color: #4B283A !important;
+}
+
+.plantea-dark .text-\[\#3D1A2B\],
+.plantea-dark .text-\[\#5C4B54\] {
+  color: #FCEBF2 !important;
+}
+
+.plantea-dark .text-\[\#7C5266\],
+.plantea-dark .text-\[\#B48EA0\] {
+  color: #D2B0C0 !important;
+}
+
+.plantea-dark .text-\[\#9D174D\],
+.plantea-dark .text-\[\#E11D64\] {
+  color: #F9A8D4 !important;
+}
+
+.plantea-dark .border-\[\#F5BDD6\],
+.plantea-dark .border-\[\#F39EC1\],
+.plantea-dark .border-\[\#F0C6D8\],
+.plantea-dark .border-\[\#F6C8DC\],
+.plantea-dark .border-\[\#F6DCE7\] {
+  border-color: #4B2C3B !important;
+}
+
+.plantea-dark .divide-\[\#F6C8DC\] > :not(:last-child),
+.plantea-dark .divide-\[\#F5BDD6\] > :not(:last-child) {
+  border-color: #452836 !important;
+}
+
+.plantea-dark input,
+.plantea-dark select,
+.plantea-dark textarea {
+  background-color: #1A1015 !important;
+  color: #FCEBF2 !important;
+  border-color: #5C3648 !important;
+}
+
+/* Giữ độ tương phản tối cho chữ bên trong thẻ task có màu pastel riêng */
+.plantea-dark [data-task-card] {
+  color: #2D1722 !important;
+}
+
+.plantea-dark [data-task-card] * {
+  color: inherit;
+}
+
+/* Giữ nguyên giao diện nút Sign in with Google chuẩn theo quy chuẩn Google */
+.plantea-dark .gsi-material-button {
+  background-color: #FFFFFF !important;
+  color: #1F1F1F !important;
+  border-color: #747775 !important;
+}
+
+/* Custom kawaii scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFE8F1;
+  border-radius: 9999px;
+}
+
+.plantea-dark ::-webkit-scrollbar-track {
+  background: #1C1016;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F5BDD6;
+  border-radius: 9999px;
+}
+
+.plantea-dark ::-webkit-scrollbar-thumb {
+  background: #61394C;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F472B6;
+}
+
+@page {
+  size: A5 portrait;
+  margin: 8mm;
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+
+  .tuition-a5-sheet,
+  .tuition-a5-sheet * {
+    visibility: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .tuition-a5-sheet {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+}
